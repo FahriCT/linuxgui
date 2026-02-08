@@ -1,28 +1,19 @@
 [cerebrium.deployment]
-name = "test"
+name = "5-dockerfile"
 python_version = "3.12"
 include = ["./*"]
 exclude = [".*"]
 shell_commands = [""]
 
 [cerebrium.hardware]
-cpu = 4
-memory = 16
-compute = "AMPERE_A10" # GPU selection
-memory = 16.0          # Memory allocation in GB
-cpu = 4                # Number of CPU cores
-gpu_count = 1
+cpu = 1
+memory = 1.0
+compute = "CPU"
+gpu_count = 0
 provider = "aws"
 region = "us-east-1"
 
 [cerebrium.runtime.custom]
-#entrypoint = ["--host", "0.0.0.0", "--port", "3389"]
 port = 3389
-healthcheck_endpoint = ""
 dockerfile_path = "./Dockerfile"
-
-[cerebrium.scaling]
-min_replicas = 1
-max_replicas = 1
-cooldown = 1
 
