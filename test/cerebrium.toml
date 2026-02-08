@@ -1,12 +1,17 @@
 [cerebrium.deployment]
 name = "test"
 python_version = "3.12"
+include = ["./*"]
+exclude = [".*"]
+shell_commands = [""]
 
 [cerebrium.hardware]
-cpu = 
-memory = 1.0
-compute = "CPU"
-gpu_count = 0
+cpu = 4
+memory = 16
+compute = "AMPERE_A10" # GPU selection
+memory = 16.0          # Memory allocation in GB
+cpu = 4                # Number of CPU cores
+gpu_count = 1
 provider = "aws"
 region = "us-east-1"
 
