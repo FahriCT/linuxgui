@@ -1,12 +1,9 @@
 [cerebrium.deployment]
 name = "test"
 python_version = "3.12"
-include = ["./*"]
-exclude = [".*"]
-shell_commands = [""]
 
 [cerebrium.hardware]
-cpu = 1
+cpu = 
 memory = 1.0
 compute = "CPU"
 gpu_count = 0
@@ -14,12 +11,13 @@ provider = "aws"
 region = "us-east-1"
 
 [cerebrium.runtime.custom]
-port = 8192
-healthcheck_endpoint = "/health"
+entrypoint = ["--host", "0.0.0.0", "--port", "3389"]
+port = 3389
+healthcheck_endpoint = ""
 dockerfile_path = "./Dockerfile"
 
 [cerebrium.scaling]
-min_replicas = 0
-max_replicas = 2
+min_replicas = 1
+max_replicas = 1
 cooldown = 1
-replica_concurrency = 100
+
